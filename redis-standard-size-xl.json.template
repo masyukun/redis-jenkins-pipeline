@@ -1,0 +1,5 @@
+{
+    "name": "{NAME}",
+    "type": "redis",
+    "memory_size": 137438953472
+}
