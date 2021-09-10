@@ -24,6 +24,23 @@ def runJenkinsPipeline(deployfile):
     REDIS_USER = os.environ.get('REDIS_USER')
     REDIS_PASS = os.environ.get('REDIS_PASS')
 
+    # Make sure environment variables are set
+    needsEnv = False
+    if REDIS_SERVER_FQDN is None:
+        print("ERROR: This script requires the REDIS_SERVER_FQDN environment variable set to the https://<server-address> of the target Redis instance.")
+        needsEnv = True
+    if REDIS_SERVER_PORT is None:
+        print("ERROR: This script requires the REDIS_SERVER_PORT environment variable set to the Redis REST API port (default 9443).")
+        needsEnv = True
+    if REDIS_USER is None:
+        print("ERROR: This script requires the REDIS_USER environment variable set to the Redis user allowed to create databases.")
+        needsEnv = True
+    if REDIS_PASS is None:
+        print("ERROR: This script requires the REDIS_PASS environment variable set to the Redis user's password.")
+        needsEnv = True
+    if needsEnv:
+        return
+
 
     # Get the deployment config file from the user
     deployconfig = getfile(deployfile)
