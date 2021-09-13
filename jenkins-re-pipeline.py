@@ -57,6 +57,7 @@ def runJenkinsPipeline(deployfile):
     tshirtfile["port"] = deployconfig["database"]["port"]
     print (tshirtfile)
 
+
     # Create the database
     url = "https://" + REDIS_SERVER_FQDN + ":" + REDIS_SERVER_PORT + "/v1/bdbs"
     print (url)
