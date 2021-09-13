@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import requests # REST requests
+from requests.auth import HTTPBasicAuth
 import click    # command-line argument parsing
 
 
@@ -58,8 +59,14 @@ def runJenkinsPipeline(deployfile):
     # Create the database
     url = "https://" + REDIS_SERVER_FQDN + ":" + REDIS_SERVER_PORT + "/v1/bdbs"
     print (url)
-    #response = requests.post(url, json=tshirtfile)
-    #print (response.json())
+    response = requests.post(url, verify=False, auth = HTTPBasicAuth(REDIS_USER, REDIS_PASS),
+        json=tshirtfile
+        )
+    try:
+        print(response.json())
+    except:
+        print ('Response is not JSON.')
+        print (response)
 
 
 
