@@ -1,7 +1,7 @@
 {
   "database": {
     "name": "product-catalog",
-    "port": 12001,
+    "port": 10001,
     "size": "S",
     "operation": "CREATE"
   }

@@ -54,6 +54,7 @@ def runJenkinsPipeline(deployfile):
 
     # Customize the t-shirt file with user specs
     tshirtfile["name"] = deployconfig["database"]["name"]
+    tshirtfile["port"] = deployconfig["database"]["port"]
     print (tshirtfile)
 
     # Create the database
