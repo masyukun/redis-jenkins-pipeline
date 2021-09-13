@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+    environment {
+        REDIS_SERVER_FQDN = credentials('REDIS_SERVER_FQDN')
+        REDIS_SERVER_PORT = credentials('REDIS_SERVER_PORT')
+        REDIS_USER =  credentials('REDIS_USER')
+        REDIS_PASS = credentials('REDIS_PASS')
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
+        stage('build') {
+            steps {
+                sh 'python3 jenkins-re-pipeline.py'
+            }
+        }
+    }
+}
