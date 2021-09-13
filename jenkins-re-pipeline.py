@@ -48,7 +48,7 @@ def runJenkinsPipeline(deployfile):
 
     # Get pre-made t-shirt file
     dbsize = deployconfig["database"]["size"]
-    tshirtfile = getfile("./redis-standard-size-"+dbsize+".json.template")
+    tshirtfile = getfile("./redis-standard-size-"+dbsize.lower()+".json.template")
     print (tshirtfile)
 
     # Customize the t-shirt file with user specs
