@@ -1,7 +1,7 @@
 {
   "database": {
-    "name": "product-catalog",
-    "port": 10001,
+    "name": "made-with-jenkins",
+    "port": 10002,
     "size": "S",
     "operation": "CREATE"
   }
