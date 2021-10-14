@@ -1,0 +1,57 @@
+{
+    "name": "{NAME}",
+	"protocol_version": 1,
+	"causal_consistency": false,
+	"encryption": false,
+	"default_db_config": {
+		"name": "{NAME}",
+		"port": 10125,
+        "memory_size": 343597383,
+		"aof_policy": "appendfsync-every-sec",
+		"bigstore": false,
+		"data_persistence": "disabled",
+		"default_user": false,
+		"eviction_policy": "noeviction",
+		"module_list": [],
+		"oss_cluster": false,
+		"rack_aware": false,
+		"replication": false,
+		"shard_key_regex": [
+			{
+				"regex": ".*\\{(?<tag>.*)\\}.*"
+			},
+			{
+				"regex": "(?<tag>.*)"
+			}
+		],
+		"sharding": true,
+		"shards_count": 1,
+		"snapshot_policy": [],
+		"tls_mode": "disabled"
+	},
+	"featureset_version": 4,
+	"instances": [
+		{
+			"cluster": {
+				"credentials": {
+					"password": "imtheadmin",
+					"username": "admin@redislabs.com"
+				},
+				"name": "cluster1.local",
+				"url": "https://cluster1.local:9443"
+			},
+			"compression": 3
+		},
+		{
+			"cluster": {
+				"credentials": {
+					"password": "imtheadmin",
+					"username": "admin@redislabs.com"
+				},
+				"name": "cluster2.local",
+				"url": "https://cluster2.local:9443"
+			},
+			"compression": 3
+		}
+	]
+}

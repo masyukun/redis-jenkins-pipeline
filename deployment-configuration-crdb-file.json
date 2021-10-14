@@ -1,0 +1,17 @@
+{
+  "database": {
+    "name": "active-active-by-jenkins",
+    "port": 10015,
+    "size": "S",
+    "operation": "CREATE",
+    "type": "crdb",
+    "clusters": [
+      {
+        "url": "https://cluster1.local:9443"
+      },
+      {
+        "url": "https://cluster2.local:9443"
+      }
+    ]
+  }
+}
