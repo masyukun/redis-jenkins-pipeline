@@ -1,0 +1,46 @@
+Jenkins demo walkthrough
+
+
+1. PPT slides
+
+2. Link to HOW-TO to follow along Configuration steps: 
+   - https://redislabs.atlassian.net/wiki/spaces/~525320175/pages/3087466507/HOW-TO+Deploy+a+Redis+database+from+a+Jenkins+Pipeline+CI+CD#Process
+
+3. Open the 2 clusters in Chrome and Incognito so that the sessions don't conflict:
+   - cluster1.local  https://34.83.165.192:8443/#/clustertabs/conf/0
+   - cluster2.local  https://34.83.165.192:8445/#/clustertabs/conf/0
+
+4. Manually create a CRDB database from cluster1.local -- or at least show that it exists.
+   - Participating clusters: 
+      - https://cluster1.local:9443 / admin@redislabs.com / imtheadmin
+      - https://cluster2.local:9443 / admin@redislabs.com / imtheadmin
+
+5. Open Jenkins UI 
+   - http://localhost:8082/
+
+6. Show host and password secrets
+   - Manage Jenkins -> Manage Credentials
+   - Open Visual Studio, show export-credentials.sh file
+
+7. Show pipeline
+   - Show Dashboard --> Redis builder --> Configure
+   - Build trigger: you can trigger a build from a REST endpoint
+   - Pipeline code:
+      - mapping credentials to env variables to handoff to the Python script
+      - git branch step will pull every time, to pick up any changes
+      - python script run as shell command. 
+         - Currently hardcoded deployment-configuration-file.json filename, but this could be a variable of some kind as well.
+
+8. Open Visual Studio code to show deployment-configuration-file.json
+
+9. Run the pipeline from UI
+   - Show output of git, script
+   - Show in cluster1.local that a Redis db has been created.
+   - Show that db does not exist in cluster2.local
+
+10. Open Visual Studio code to show deployment-configuration-crdb-file.json
+
+11. Edit Pipeline target to point to this file, and re-run the pipeline.
+   - Show output of script (click for full page)
+   - Show the db exists in both clusters.
+
