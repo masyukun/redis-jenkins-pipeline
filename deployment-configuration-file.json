@@ -1,6 +1,6 @@
 {
   "database": {
-    "name": "made-with-jenkins-again",
+    "name": "made-with-jenkins",
     "port": 10003,
     "size": "S",
     "operation": "CREATE",
