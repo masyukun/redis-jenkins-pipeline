@@ -14,10 +14,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        
+     
         stage('build') {
             steps {
-                sh 'python3 jenkins-re-pipeline.py'
+                git branch: 'main', url: 'https://github.com/masyukun/redis-jenkins-pipeline.git'
+                sh 'python3 jenkins-re-pipeline.py --deployfile deployment-configuration-file.json'
             }
         }
     }
