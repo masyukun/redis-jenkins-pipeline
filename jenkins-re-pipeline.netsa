@@ -5,7 +5,7 @@ import requests # REST requests
 from requests.auth import HTTPBasicAuth
 import click    # command-line argument parsing
 import time
-
+NETSA 
 
 def getfile(filename):
     f = open(filename,)
